@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_156"
+        android:layout_margin="@dimen/dp_20"
+        android:background="@drawable/money_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/dp_28"
+            android:layout_marginTop="@dimen/dp_28"
+            android:text="余额"
+            android:textColor="#343434"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:id="@+id/sheng_Yue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dp_45"
+            android:layout_marginBottom="@dimen/dp_40"
+            android:text="100.00"
+            android:textColor="#343434"
+            android:textSize="@dimen/sp_40" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp_80"
+            android:text="消费金额" />
+
+        <TextView
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp_60"
+            android:text="消费时间" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_1"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="#666"/>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/list_Money"
+        android:layout_width="@dimen/dp_300"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+</LinearLayout>

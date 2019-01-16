@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/beijingxuhua"
+    android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/mSDv_Finished_Child"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_90"
+        android:layout_margin="8dp" />
+
+    <TextView
+        android:id="@+id/mTv_Name_Finished_Child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:ellipsize="end"
+        android:maxEms="9"
+        android:singleLine="true"
+        android:layout_toRightOf="@+id/mSDv_Finished_Child"
+        android:text="哈哈哈好好好好好好哈哈哈哈哈哈好好"
+        android:textColor="#666666"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:id="@+id/mTv_Price_Finished_Child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/mSDv_Finished_Child"
+        android:fontFamily="DIN Alternate"
+        android:text="￥ 32122"
+        android:textColor="#ff0606"
+        android:textSize="@dimen/sp_14" />
+</RelativeLayout>

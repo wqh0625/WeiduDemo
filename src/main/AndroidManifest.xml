@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="demo.com.demo01">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <application
+        android:name=".core.utils.MyApp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:icon="@drawable/project_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="demo.com.demo01.view.MainActivity" />
+        <activity android:name="demo.com.demo01.view.RegisterActivity" />
+        <activity android:name="demo.com.demo01.view.HomeActivity">
+
+        </activity>
+        <activity android:name="demo.com.demo01.view.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="demo.com.demo01.core.home_list_xiangqing.activity.Adapter_GoodsXiangqing" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.ShowMyDataActivity" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.ShowMyMoneyActivity" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.ShowMyFootActivity" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.ShowMyCircleActivity" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.ShowMyAddressActivity" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.AddMyAddressActivity" />
+        <activity android:name="demo.com.demo01.view.SearchActivity" />
+        <activity android:name="demo.com.demo01.view.AddMyCircleActivity" />
+        <activity android:name="demo.com.demo01.view.PayActivity" />
+        <activity android:name="demo.com.demo01.view.CommentActivity" />
+        <activity android:name="demo.com.demo01.view.my_fragment_activity.ShowMyDataActivity"/>
+
+
+
+
+        <!--<meta-data android:value="YOUR_APP_KEY" android:name="UMENG_APPKEY"/>-->
+        <!--<meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>-->
+
+    </application>
+
+</manifest>

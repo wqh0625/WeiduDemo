@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_102"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_marginRight="@dimen/dp_24"
+        android:background="@drawable/beijingxuhua"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rB1"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/commo_n_dan"
+                android:gravity="center"
+                android:text="全部单"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rB2"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/common_icon_pay_n_qian"
+                android:gravity="center"
+                android:text="待付款"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rB3"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/common_icon_receive_n_car"
+                android:gravity="center"
+                android:text="待收货"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rB4"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/commom_icon_comment_n_bi"
+                android:gravity="center"
+                android:text="待评价"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rB5"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/common_icon_finish_n_dui"
+                android:gravity="center"
+                android:text="已完成"></RadioButton>
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_fragment"
+        android:layout_width="@dimen/dp_352"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_5" />
+
+</LinearLayout>

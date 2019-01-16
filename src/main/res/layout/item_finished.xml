@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="24dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="24dp"
+    android:background="@drawable/pick"
+    android:orientation="vertical">
+
+    <!-- 主页面 -->
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"    android:layout_above="@+id/mSDv_ShopCar_Item"
+        android:orientation="vertical">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="订单号"
+            android:textColor="#666666"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:id="@+id/mTv_OrderNum_Finished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/sp_12"
+            android:text="WD20180605445435" />
+
+        <ImageView
+            android:id="@+id/mIv_More_Finished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+             />
+        <!--//android:src="@drawable/common_btn_more_n_xxhdpi"-->
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRv_Finished"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"></android.support.v7.widget.RecyclerView>
+    <!--
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="97dp"
+
+                >
+            </RelativeLayout>
+    -->
+    <TextView
+        android:id="@+id/mTv_Time_Finished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="@dimen/sp_12"
+        android:layout_marginBottom="20dp"
+        android:text="2019-01-05 18:07" />
+
+</LinearLayout>

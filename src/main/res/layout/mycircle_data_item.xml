@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/beijingxuhua"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/myqz_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginRight="@dimen/sp_10"
+        android:paddingLeft="@dimen/dp_8"
+        android:text="是 多胜多负少的"
+        android:textColor="#666666"
+        android:textSize="@dimen/sp_12" />
+
+    <demo.com.demo01.core.utils.RecyclerGridView
+        android:id="@+id/myqz_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/myqz_text"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myqz_gridview"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/myqz_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/sp_10"
+            android:gravity="center_vertical"
+            android:text="20190104:19:30"
+            android:textColor="#666"
+            android:textSize="@dimen/sp_10" />
+
+        <ImageView
+            android:id="@+id/myqz_prise"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp_170"
+            android:button="@null" />
+
+        <TextView
+            android:id="@+id/myqz_number"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_18"
+            android:layout_alignRight="@id/myqz_prise"
+            android:layout_gravity="center"
+            android:text="18"
+            android:textColor="#666666"
+            android:textSize="@dimen/sp_12" />
+    </LinearLayout>
+</LinearLayout>

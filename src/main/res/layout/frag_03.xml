@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+        android:id="@+id/car_swiperecycler"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1">
+
+    </com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="#fff"
+        android:layout_alignParentBottom="true" >
+
+        <CheckBox
+            android:id="@+id/car_check_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="全选" />
+
+        <TextView
+            android:id="@+id/car_tv_heji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/car_check_all"
+            android:text="合计：0.0" />
+
+        <TextView
+            android:id="@+id/car_tv_qujiesuan"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="#ff5e70"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="@dimen/sp_16"
+            android:text="去结算" />
+    </RelativeLayout>
+
+</LinearLayout>
