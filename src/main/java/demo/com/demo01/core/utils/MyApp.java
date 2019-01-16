@@ -33,6 +33,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         // 初始化Bugly
         CrashReport.initCrashReport(this, "19a0112879", false);
         Fresco.initialize(this, getConfigureCaches(this));
