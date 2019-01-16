@@ -10,6 +10,8 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -42,7 +44,7 @@ public class StartActivity extends AppCompatActivity {
                     for (int i = 0; i < list.size(); i++) {
                         if (list.get(i).getStatus() == 1) {
 //                            Toast.makeText(StartActivity.this, "跳转进主页面", Toast.LENGTH_SHORT).show();
-                            Log.e("------登录数据",list.get(i).toString());
+                            Log.e("------登录数据", list.get(i).toString());
                             // 跳转到主页面
                             startActivity(new Intent(StartActivity.this, HomeActivity.class));
                             finish();
@@ -92,6 +94,17 @@ public class StartActivity extends AppCompatActivity {
         handler.removeMessages(1);
         finish();
         return;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     @Override

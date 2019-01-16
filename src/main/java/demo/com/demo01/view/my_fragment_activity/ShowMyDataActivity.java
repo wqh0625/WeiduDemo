@@ -58,8 +58,8 @@ public class ShowMyDataActivity extends BaseActivity {
         startActivity(intent);// 跳转
     }
 
-    @OnClick(R.id.makingBtn)
-    void in() {
-        startActivity(new Intent(ShowMyDataActivity.this, MyMakingViewActivity.class));
-    }
+//    @OnClick(R.id.makingBtn)
+//    void in() {
+//        startActivity(new Intent(ShowMyDataActivity.this, MyMakingViewActivity.class));
+//    }
 }

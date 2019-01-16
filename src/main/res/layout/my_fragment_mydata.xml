@@ -178,13 +178,13 @@
         android:textColor="#fff"
         android:textSize="@dimen/sp_14" />
 
-    <Button
-        android:id="@+id/makingBtn"
-        android:layout_width="@dimen/dp_300"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_1"
-        android:background="@drawable/btn_style_addadress"
-        android:text="查看我的自定义View"
-        android:textColor="#fff"
-        android:textSize="@dimen/sp_14" />
+    <!--<Button-->
+        <!--android:id="@+id/makingBtn"-->
+        <!--android:layout_width="@dimen/dp_300"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/dp_1"-->
+        <!--android:background="@drawable/btn_style_addadress"-->
+        <!--android:text="查看我的自定义View"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textSize="@dimen/sp_14" />-->
 </LinearLayout>

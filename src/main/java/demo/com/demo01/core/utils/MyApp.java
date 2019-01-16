@@ -10,6 +10,8 @@ import com.facebook.common.util.ByteConstants;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.cache.MemoryCacheParams;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.tencent.bugly.crashreport.CrashReport;
+import com.umeng.commonsdk.UMConfigure;
 
 import java.io.File;
 
@@ -31,8 +33,14 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        // 初始化Bugly
+        CrashReport.initCrashReport(this, "19a0112879", false);
         Fresco.initialize(this, getConfigureCaches(this));
+
+        /*
+         *  注意：如果您已经在AndroidManifest.xml中配置过appkey和channel值，可以调用此版本初始化函数。
+        */
+        UMConfigure.init(this,   UMConfigure.DEVICE_TYPE_PHONE,   "5c3e9eaef1f5561771001175");
     }
 
     private ImagePipelineConfig getConfigureCaches(Context context) {
@@ -55,6 +63,5 @@ public class MyApp extends Application {
         builder.setBitmapMemoryCacheParamsSupplier(mSupplierMemoryCacheParams);
         return builder.build();
     }
-
 
 }
