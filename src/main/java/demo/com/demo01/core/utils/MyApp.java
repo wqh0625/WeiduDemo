@@ -40,7 +40,6 @@ public class MyApp extends Application {
         /*
          *  注意：如果您已经在AndroidManifest.xml中配置过appkey和channel值，可以调用此版本初始化函数。
          *
-         *
         */
         UMConfigure.init(this,   UMConfigure.DEVICE_TYPE_PHONE,   "5c3e9eaef1f5561771001175");
     }
