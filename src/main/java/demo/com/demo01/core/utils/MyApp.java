@@ -48,6 +48,8 @@ public class MyApp extends Application {
         */
         UMConfigure.init(this,   UMConfigure.DEVICE_TYPE_PHONE,   "5c3e9eaef1f5561771001175");
 
+
+
         // 选用LEGACY_AUTO页面采集模式
 //        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
 //        MobclickAgent
