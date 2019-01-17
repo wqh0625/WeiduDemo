@@ -27,7 +27,6 @@ public class SearchActivity_XRecyclerViewAdapter extends RecyclerView.Adapter<Se
 
     private List<SearchData> list;
     private Context context;
-    private int id;
 
     public SearchActivity_XRecyclerViewAdapter(  Context context) {
         this.list = new ArrayList<>();
@@ -56,7 +55,7 @@ public class SearchActivity_XRecyclerViewAdapter extends RecyclerView.Adapter<Se
         viewHolder.price.setText("¥"+searchData.getPrice());
         viewHolder.title.setText(searchData.getCommodityName());
         viewHolder.yishou.setText("已售"+searchData.getSaleNum()+"件");
-        id = searchData.getCommodityId();
+        final int id = searchData.getCommodityId();
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -11,6 +11,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.cache.MemoryCacheParams;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 
 import java.io.File;
@@ -46,6 +47,10 @@ public class MyApp extends Application {
          *
         */
         UMConfigure.init(this,   UMConfigure.DEVICE_TYPE_PHONE,   "5c3e9eaef1f5561771001175");
+
+        // 选用LEGACY_AUTO页面采集模式
+//        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
+//        MobclickAgent
     }
 
     private ImagePipelineConfig getConfigureCaches(Context context) {

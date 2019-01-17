@@ -25,11 +25,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private RadioGroup radio;
     private FragmentManager manager;
-    private HomeFragment homeFragment;
-    private CircleFragment circleFragment;
-    private ListFragment listFragment;
-    private MyFragment myFragment;
-    private ShoppingFragment shoppingFragment;
+
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,45 +35,72 @@ public class HomeActivity extends AppCompatActivity {
 
         radio = findViewById(R.id.mmyRadio);
 
-        homeFragment = new HomeFragment();
-        circleFragment = new CircleFragment();
-        listFragment = new ListFragment();
-        myFragment = new MyFragment();
-        shoppingFragment = new ShoppingFragment();
 
         manager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = manager.beginTransaction();
-        fragmentTransaction.add(R.id.frameLayout,homeFragment).show(homeFragment);
-        fragmentTransaction.add(R.id.frameLayout,circleFragment).hide(circleFragment);
-        fragmentTransaction.add(R.id.frameLayout,shoppingFragment).hide(shoppingFragment);
-        fragmentTransaction.add(R.id.frameLayout,listFragment).hide(listFragment);
-        fragmentTransaction.add(R.id.frameLayout,myFragment).hide(myFragment);
-        fragmentTransaction.commit();
+        transaction = manager.beginTransaction();
+        transaction.replace(R.id.frameLayout, new HomeFragment());
+        transaction.commit();
 
         radio.check(radio.getChildAt(0).getId());
         radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                FragmentTransaction transaction = manager.beginTransaction();
+                 transaction = manager.beginTransaction();
                 switch (checkedId){
                     case R.id.mmyRB1:
-                        transaction.show(homeFragment).hide(myFragment).hide(listFragment).hide(shoppingFragment).hide(circleFragment).commit();
+                         transaction.replace(R.id.frameLayout,new HomeFragment());
                         break;
                     case R.id.mmyRB2:
-                        transaction.show(circleFragment).hide(homeFragment).hide(listFragment).hide(shoppingFragment).hide(myFragment).commit();
+                        transaction.replace(R.id.frameLayout,new CircleFragment());
+
                         break;
                     case R.id.mmyRB3:
-                        transaction.show(shoppingFragment).hide(myFragment).hide(homeFragment).hide(listFragment).hide(circleFragment).commit();
+                        transaction.replace(R.id.frameLayout,new ShoppingFragment());
+
                         break;
                     case R.id.mmyRB4:
-                        transaction.show(listFragment).hide(myFragment).hide(shoppingFragment).hide(homeFragment).hide(circleFragment).commit();
+                        transaction.replace(R.id.frameLayout,new ListFragment());
+
                         break;
                     case R.id.mmyRB5:
-                        transaction.show(myFragment).hide(circleFragment).hide(listFragment).hide(shoppingFragment).hide(homeFragment).commit();
+                        transaction.replace(R.id.frameLayout,new MyFragment());
                         break;
                 }
+                transaction.commit();
             }
         });
+
+//        fragmentTransaction.add(R.id.frameLayout,homeFragment).show(homeFragment);
+//        fragmentTransaction.add(R.id.frameLayout,circleFragment).hide(circleFragment);
+//        fragmentTransaction.add(R.id.frameLayout,shoppingFragment).hide(shoppingFragment);
+//        fragmentTransaction.add(R.id.frameLayout,listFragment).hide(listFragment);
+//        fragmentTransaction.add(R.id.frameLayout,myFragment).hide(myFragment);
+//        fragmentTransaction.commit();
+//
+//        radio.check(radio.getChildAt(0).getId());
+//        radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                FragmentTransaction transaction = manager.beginTransaction();
+//                switch (checkedId){
+//                    case R.id.mmyRB1:
+//                        transaction.show(homeFragment).hide(myFragment).hide(listFragment).hide(shoppingFragment).hide(circleFragment).commit();
+//                        break;
+//                    case R.id.mmyRB2:
+//                        transaction.show(circleFragment).hide(homeFragment).hide(listFragment).hide(shoppingFragment).hide(myFragment).commit();
+//                        break;
+//                    case R.id.mmyRB3:
+//                        transaction.show(shoppingFragment).hide(myFragment).hide(homeFragment).hide(listFragment).hide(circleFragment).commit();
+//                        break;
+//                    case R.id.mmyRB4:
+//                        transaction.show(listFragment).hide(myFragment).hide(shoppingFragment).hide(homeFragment).hide(circleFragment).commit();
+//                        break;
+//                    case R.id.mmyRB5:
+//                        transaction.show(myFragment).hide(circleFragment).hide(listFragment).hide(shoppingFragment).hide(homeFragment).commit();
+//                        break;
+//                }
+//            }
+//        });
 
     }
 

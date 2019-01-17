@@ -195,7 +195,7 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         bind.unbind();
-        mMZBanner.pause();
+//        mMZBanner.pause();
         bannerPresenter.unBind();
         homeListPresenter.unBind();
     }

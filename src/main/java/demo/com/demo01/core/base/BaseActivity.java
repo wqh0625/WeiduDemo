@@ -92,12 +92,14 @@ public class BaseActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);
+        MobclickAgent.onPageStart("进入页面了！！");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
+        MobclickAgent.onPageEnd("结束页面");
     }
 
 
