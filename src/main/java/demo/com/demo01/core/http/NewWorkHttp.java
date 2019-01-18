@@ -13,11 +13,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 寄语：加油！相信自己可以！！！
  */
 
-
 public class NewWorkHttp {
     private static NewWorkHttp netWork;
     private static final String BSAE_URL = "http://172.17.8.100/small/";
-//    String BSAE_URL = "http://169.254.101.220:8080/";
+//    String BSAE_URL = "http://169.254.101.220:8080/small/";
     private Retrofit retrofit;
 
     private NewWorkHttp() {

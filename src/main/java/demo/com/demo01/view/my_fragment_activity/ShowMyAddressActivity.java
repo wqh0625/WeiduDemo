@@ -39,9 +39,8 @@ public class ShowMyAddressActivity extends BaseActivity {
         listView = findViewById(R.id.my_myaddress_List);
         adapter = new MyAddressListAdapter(this);
 
-
         getMyAddressListPresenter = new GetMyAddressListPresenter(new MyList());
-        getMyAddressListPresenter.requestNet(552, user.getSessionId());
+        getMyAddressListPresenter.requestNet((int)user.getUserId(), user.getSessionId());
         listView.setAdapter(adapter);
     }
 

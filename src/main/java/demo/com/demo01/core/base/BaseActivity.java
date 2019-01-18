@@ -8,16 +8,25 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import demo.com.demo01.bean.LoginData;
+import demo.com.demo01.bean.MyAddressData;
+import demo.com.demo01.bean.Result;
+import demo.com.demo01.core.exception.ApiException;
+import demo.com.demo01.core.http.DataCall;
 import demo.com.demo01.dao.DaoMaster;
 import demo.com.demo01.dao.DaoSession;
 import demo.com.demo01.dao.LoginDataDao;
+import demo.com.demo01.presenter.GetMyAddressListPresenter;
+import demo.com.demo01.view.my_fragment_activity.ShowMyAddressActivity;
 
 /**
  * 作者: Wang on 2019/1/3 13:56
@@ -43,13 +52,13 @@ public class BaseActivity extends AppCompatActivity {
         DaoSession daoSession = DaoMaster.newDevSession(this, LoginDataDao.TABLENAME);
         dao = daoSession.getLoginDataDao();
         loginDatalist = dao.loadAll();
+
         for (int i = 0; i < loginDatalist.size(); i++) {
             if (loginDatalist.get(i).getStatus() == 1) {
                 user = loginDatalist.get(i);
-                return;
             }
         }
-        //
+
     }
 
     /**
@@ -101,6 +110,5 @@ public class BaseActivity extends AppCompatActivity {
         MobclickAgent.onPause(this);
         MobclickAgent.onPageEnd("结束页面");
     }
-
 
 }

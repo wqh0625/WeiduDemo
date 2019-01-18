@@ -32,7 +32,6 @@ import demo.com.demo01.presenter.GetMyFootListPresenter;
  * 寄语：加油！相信自己可以！！！
  */
 
-
 public class ShowMyFootActivity extends BaseActivity implements XRecyclerView.LoadingListener {
     //    private LoginDataDao dao;
 //    private List<LoginData> loginDatalist;
@@ -72,15 +71,13 @@ public class ShowMyFootActivity extends BaseActivity implements XRecyclerView.Lo
         recyclerView.refresh();
     }
 
-
     @Override
     public void onRefresh() {
         if (getMyFootListPresenter.isRuning()) {
             recyclerView.refreshComplete();
             return;
         }
-        footRecyclerViewAdapter.deleteList();
-
+//        footRecyclerViewAdapter.deleteList();
         getMyFootListPresenter.requestNet((int) user.getUserId(), user.getSessionId(), true);
     }
 

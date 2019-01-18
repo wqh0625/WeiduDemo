@@ -200,7 +200,6 @@ public class HomeFragment extends Fragment {
         homeListPresenter.unBind();
     }
 
-
     @Override
     public void onResume() {
         super.onResume();

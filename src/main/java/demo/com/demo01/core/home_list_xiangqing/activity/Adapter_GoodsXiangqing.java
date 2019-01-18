@@ -29,6 +29,7 @@ import demo.com.demo01.bean.AddDataToCar;
 import demo.com.demo01.bean.CommentList;
 import demo.com.demo01.bean.CreateOrderData;
 import demo.com.demo01.bean.GoodsByIdData;
+import demo.com.demo01.bean.MyAddressData;
 import demo.com.demo01.bean.QueryCarData;
 import demo.com.demo01.bean.Result;
 import demo.com.demo01.core.adapter.CommentListAdapter;
@@ -39,6 +40,7 @@ import demo.com.demo01.core.exception.ApiException;
 import demo.com.demo01.presenter.AddCarPresenter;
 import demo.com.demo01.presenter.CommentListPresenter;
 import demo.com.demo01.presenter.CreateOrderPresenter;
+import demo.com.demo01.presenter.GetMyAddressListPresenter;
 import demo.com.demo01.presenter.QueryCarPresenter;
 import demo.com.demo01.presenter.ShowGoodsByIdPresenter;
 import demo.com.demo01.view.HomeActivity;
@@ -91,9 +93,11 @@ public class Adapter_GoodsXiangqing extends BaseActivity {
     private AddCarPresenter addCarPresenter;
     private QueryCarPresenter queryCarPresenter;
     private List<AddDataToCar> list;
+    private  List<MyAddressData> lista;
     private String w;
     private CreateOrderPresenter createOrderPresenter;
     private List<CreateOrderData> createDan;
+    private GetMyAddressListPresenter getMyAddressListPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,10 +110,13 @@ public class Adapter_GoodsXiangqing extends BaseActivity {
         w = intent.getStringExtra("w");
 //        Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
         list = new ArrayList<>();
+        lista = new ArrayList<>();
+        getMyAddressListPresenter = new GetMyAddressListPresenter(new MyList());
+        getMyAddressListPresenter.requestNet((int) user.getUserId(), user.getSessionId());
+
         queryCat();
         // 创建订单
         createOrderPresenter = new CreateOrderPresenter(new createOrder());
-
         // 实例化p层
         presenter = new ShowGoodsByIdPresenter(new GoodsP());
 //        int integer = Integer.parseInt(id);
@@ -228,13 +235,7 @@ public class Adapter_GoodsXiangqing extends BaseActivity {
 
     @OnClick(R.id.details_image_return)
     void back() {
-//        if (w.equals("1")) {
-//            startActivity(new Intent(Adapter_GoodsXiangqing.this,HomeActivity.class));
-//            finish();
-//        }else if(w.equals("2")){
-//            startActivity(new Intent(Adapter_GoodsXiangqing.this,SearchActivity.class));
-            finish();
-//        }
+          finish();
     }
 
     //评论列表
@@ -268,7 +269,7 @@ public class Adapter_GoodsXiangqing extends BaseActivity {
         addDataToCar.setCount(1);
         list.add(addDataToCar);
         String s = new Gson().toJson(list);
-        Log.v("addToCar-----", s);
+//        Log.v("addToCar-----", s);
 
         addCarPresenter.requestNet((int) user.getUserId(), user.getSessionId(), s);
     }
@@ -291,15 +292,24 @@ public class Adapter_GoodsXiangqing extends BaseActivity {
     // 创建订单
     @OnClick(R.id.btn_add_buy)
     void addBuy() {
-        // 调用添加订单接口
+         int idddddd = 0;
 
+        // 调用添加订单接口
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getWhetherDefault() == 1) {
+                idddddd = lista.get(i).getId();
+//                Toast.makeText(this, "sss"+idddddd, Toast.LENGTH_SHORT).show();
+//                Log.v("----默认", idddddd + "");
+            }
+        }
         CreateOrderData createOrderData = new CreateOrderData();
         createOrderData.setAmount(1);
         Integer integer = Integer.valueOf(id);
         createOrderData.setCommodityId(integer);
         createDan.add(createOrderData);
         String toJson = new Gson().toJson(createDan);
-        createOrderPresenter.requestNet((int) user.getUserId(), user.getSessionId(), toJson, prices, 331);
+//        Log.v("buy",toJson+idddddd);
+        createOrderPresenter.requestNet((int) user.getUserId(), user.getSessionId(), toJson, prices, idddddd);
     }
 
     class createOrder implements DataCall<Result> {
@@ -323,5 +333,25 @@ public class Adapter_GoodsXiangqing extends BaseActivity {
         presenter.unBind();// 防治内存泄露
         commentListPresenter.unBind();
         createOrderPresenter.unBind();
+    }
+
+
+
+    class MyList implements DataCall<Result<List<MyAddressData>>> {
+        @Override
+        public void success(Result<List<MyAddressData>> data) {
+//            Toast.makeText(ShowMyAddressActivity.this, "" + data.getResult().size(), Toast.LENGTH_SHORT).show();
+            if (data.getStatus().equals("0000")) {
+                for (int i = 0; i < data.getResult().size(); i++) {
+                    Log.v("收货地址-----", "" + data.getResult().get(i).toString());
+                }
+                lista.addAll(data.getResult());
+            }
+        }
+
+        @Override
+        public void fail(ApiException a) {
+            Toast.makeText(Adapter_GoodsXiangqing.this, "" + a.getCode() + a.getDisplayMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

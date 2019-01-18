@@ -1,8 +1,39 @@
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 28
 
+    flavorDimensions "tier", "minApi"
+    productFlavors {
+        yingyongbao {
+            dimension "tier"
+        }
+        huawei {
+            dimension "tier"
+        }
+        baidu {
+            dimension "tier"
+        }
+        xiaomi {
+            dimension "minApi"
+        }
+        qh360 {
+            dimension "minApi"
+        }
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->// each 改为 all
+            def fileName = "${variant.versionName}_${variant.productFlavors[0].name}_release.apk"
+            def outFile = output.outputFile
+            if (outFile != null && outFile.name.endsWith('.apk')) {
+                outputFileName = fileName  //  output.outputFile 改为 outputFileName
+            }
+        }
+    }
+
+    compileSdkVersion 28
     sourceSets {
         main.jniLibs.srcDirs = ['libs']
     }

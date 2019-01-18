@@ -70,7 +70,7 @@ public interface IRequest {
             @Header("sessionId") String sessionId
             , @Query("commodityId") String id);
 
-    //   圈子数据
+    //   圈子数据receiveAddressList
     @GET("circle/v1/findCircleList")
     Observable<Result<List<CircleData>>> circleData(
             @Header("userId") int userid,
