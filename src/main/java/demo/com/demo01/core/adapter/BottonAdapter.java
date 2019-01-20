@@ -24,7 +24,7 @@ import demo.com.demo01.bean.BottonBean;
 public class BottonAdapter extends RecyclerView.Adapter<BottonAdapter.ViewHolder> {
     private List<BottonBean> list;
 
-    onClickk onClickk;
+    private onClickk onClickk;
 
     public BottonAdapter() {
         this.list = new ArrayList<>();

@@ -1,8 +1,6 @@
 package demo.com.demo01.core.adapter;
 
 
-
-
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -30,9 +28,10 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
     Context context;
     List<QueryCarData> mList = new ArrayList<>();
 
-    List<QueryCarData> huidiao= new ArrayList<>();
+    List<QueryCarData> huidiao = new ArrayList<>();
+
     public void clear() {
-        this.mList .clear();
+        this.mList.clear();
     }
 
     //计算总价
@@ -48,17 +47,16 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
 
     @NonNull
     @Override
-    public CarAdapter.Myholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public CarAdapter.Myholder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = View.inflate(context, R.layout.car_item_adapter, null);
         Myholder myholder = new Myholder(view);
         return myholder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CarAdapter.Myholder myholder, final int i) {
+    public void onBindViewHolder(final CarAdapter.Myholder myholder, final int i) {
         final QueryCarData queryShopCar = mList.get(i);
         String commodityName = queryShopCar.getCommodityName();
-        int count = queryShopCar.getCount();
         String pic = queryShopCar.getPic();
         double price = queryShopCar.getPrice();
         myholder.image.setImageURI(pic);
@@ -74,10 +72,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
                 calculatePrice();
             }
         });
-        //
-        if (myholder.cartGoodsCheck.isChecked()) {
-            huidiao.add(mList.get(i));
-        }
+
         myholder.cartGoodsCheck.setChecked(queryShopCar.isIscheck());
         //设置点击商品列表cb价格回调
         myholder.cartGoodsCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -91,7 +86,6 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
         calculatePrice();
     }
 
-
     @Override
     public int getItemCount() {
         return mList.size();
@@ -103,6 +97,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
         }
 
     }
+
     //全部选中
     public void checkAll(boolean isCheck) {
         for (int i = 0; i < mList.size(); i++) {//循环的商家
@@ -122,12 +117,11 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
             boolean ischeck = queryShopCar.isIscheck();
             if (ischeck) {
                 totalPrice = totalPrice + queryShopCar.getPrice() * queryShopCar.getCount();
-//                huidiao.add(mList.get(i));
             }
 
         }
         if (totalPriceListener != null)
-            totalPriceListener.totalPrice(totalPrice,huidiao);
+            totalPriceListener.totalPrice(totalPrice, huidiao);
     }
 
     public class Myholder extends RecyclerView.ViewHolder {
@@ -136,7 +130,6 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
         private TextView text;
         private TextView textPrice;
         private AddSubLayout addSubLayout;
-
 
         public Myholder(@NonNull View itemView) {
             super(itemView);
@@ -150,7 +143,6 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Myholder> {
 
     //接口回调给Activity页面显示价格刷新
     public interface TotalPriceListener {
-        void totalPrice(double totalPrice,List<QueryCarData> list);
+        void totalPrice(double totalPrice, List<QueryCarData> list);
     }
 }
-

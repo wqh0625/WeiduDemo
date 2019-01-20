@@ -114,11 +114,11 @@ public class CircleFragment extends Fragment implements Circle_RecyclerViewAdapt
         }
     }
 
-
     // 点赞
     @Override
     public void onclick(int ai, CircleData circleData) {
         i = ai;
+        
 //        Toast.makeText(getContext(), ""+result.size(), Toast.LENGTH_SHORT).show();
 //        CircleData circleData = result.get(ai);
         if (circleData.getWhetherGreat() == 1) {

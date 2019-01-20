@@ -46,7 +46,6 @@ import demo.com.demo01.presenter.QueryCarPresenter;
  * 寄语：加油！相信自己可以！！！
  */
 
-
 public class ShoppingFragment extends Fragment {
     private LoginDataDao dao;
     private List<LoginData> loginDatalist;
@@ -83,14 +82,12 @@ public class ShoppingFragment extends Fragment {
             public void onCreateMenu(SwipeMenu leftMenu, SwipeMenu rightMenu, int position) {
                 SwipeMenuItem swipeMenuItem = new SwipeMenuItem(getContext());
                 swipeMenuItem
-                        .setHeight(ViewGroup.LayoutParams.MATCH_PARENT)//设置高，这里使用match_parent，就是与item的高相同
+                        .setHeight(ViewGroup.LayoutParams.MATCH_PARENT)
+                            //设置高，这里使用match_parent，就是与item的高相同
                         .setWidth(60)//设置宽
                         .setText("删除")
-//                        .setHeight(200)
-//                        .setTextColor(00000000)
                         .setBackground(R.drawable.pick);
                 rightMenu.addMenuItem(swipeMenuItem);//设置右边的侧滑
-//                swipeMenuItem.set
             }
         });
         mSwipeRecyclerView.setSwipeMenuItemClickListener(new SwipeMenuItemClickListener() {
@@ -100,9 +97,6 @@ public class ShoppingFragment extends Fragment {
                 //int adapterPosition = menuBridge.get; // RecyclerView的Item的position。
                 int menuPosition = menuBridge.getPosition(); // 菜单在RecyclerView的Item中的Position。
                 Toast.makeText(getContext(), "删除" + position, Toast.LENGTH_SHORT).show();
-
-//                result.remove(position);
-//                carAdapter.notifyDataSetChanged();
             }
         });
         mSwipeRecyclerView.setSwipeItemClickListener(new SwipeItemClickListener() {
@@ -122,10 +116,9 @@ public class ShoppingFragment extends Fragment {
                 carAdapter.checkAll(isChecked);
             }
         });
-        //carShowAdapter.setTotalPriceListener(this);
         carAdapter.setTotalPriceListener(new CarAdapter.TotalPriceListener() {
             @Override
-            public void totalPrice(double totalPrice,List<QueryCarData> list) {
+            public void totalPrice(double totalPrice, List<QueryCarData> list) {
                 allPrice = totalPrice;
                 addOrderList.addAll(list);
                 carTvHeji.setText("合计：" + String.valueOf(totalPrice));
@@ -141,7 +134,6 @@ public class ShoppingFragment extends Fragment {
     }
 
     class queryCar implements DataCall<Result<List<QueryCarData>>> {
-
         @Override
         public void success(Result<List<QueryCarData>> data) {
             Log.v("ccccccccccc", data.getResult().size() + "");
@@ -174,8 +166,8 @@ public class ShoppingFragment extends Fragment {
     }
 
     @OnClick(R.id.car_tv_qujiesuan)
-    void on() {
-        Toast.makeText(getActivity(), ""+addOrderList.size(), Toast.LENGTH_SHORT).show();
+    void onJieSuan() {
+        Toast.makeText(getActivity(), "" + addOrderList.size(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

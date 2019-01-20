@@ -55,7 +55,7 @@ public class AddMyCircleActivity extends BaseActivity {
         sendCirclePresenter.requestNet((int) user.getUserId(), user.getSessionId(), "1", text.getText().toString().trim(), imageAdapter.getList());
     }
 
-    // 得到反应
+    // 得到结果
     class sendQ implements DataCall<Result> {
 
         @Override

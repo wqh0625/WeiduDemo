@@ -33,7 +33,7 @@ public class CustomException {
     public static final int HTTP_ERROR = 1003;
 
     public static ApiException handleException(Throwable e) {
-//        e.printStackTrace();
+        e.printStackTrace();
         ApiException ex;
         if (e instanceof JsonParseException
                 || e instanceof JSONException

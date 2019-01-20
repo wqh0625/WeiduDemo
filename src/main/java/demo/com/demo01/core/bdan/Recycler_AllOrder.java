@@ -121,7 +121,7 @@ public class Recycler_AllOrder extends RecyclerView.Adapter<RecyclerView.ViewHol
             String replace = String.valueOf(list.get(i).getPayAmount()).replace("2019011","");
             ((Vh_WaitPay) viewHolder).mTv_price_waitPay.setText(replace);
             ((Vh_WaitPay) viewHolder).mTv_time_waitPay.setText("2019-01-08");
-            //Log.e("TAG", "onBindViewHolder: 订单ID==============="+list.get(i).getOrderId() );
+
             ((Vh_WaitPay) viewHolder).mBt_cleanOrDer_waitPay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

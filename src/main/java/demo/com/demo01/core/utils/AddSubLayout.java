@@ -16,8 +16,6 @@ import demo.com.demo01.R;
  * 寄语：加油！相信自己可以！！！
  */
 
-
-
 public class AddSubLayout extends LinearLayout implements View.OnClickListener {
 
 
@@ -40,12 +38,6 @@ public class AddSubLayout extends LinearLayout implements View.OnClickListener {
         initView();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public AddSubLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initView();
-    }
-
     private void initView(){
         //加载layout布局，第三个参数ViewGroup一定写成this
         View view = View.inflate(getContext(),R.layout.car_add_sub,this);
@@ -55,16 +47,6 @@ public class AddSubLayout extends LinearLayout implements View.OnClickListener {
         mNumText = view.findViewById(R.id.text_number);
         mAddBtn.setOnClickListener(this);
         mSubBtn.setOnClickListener(this);
-
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-
-        int width = r-l;//getWidth();
-        int height = b-t;//getHeight();
-
     }
 
     @Override
