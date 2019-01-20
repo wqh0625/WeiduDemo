@@ -24,6 +24,9 @@ import demo.com.demo01.view.fragment.ShoppingFragment;
 public class HomeActivity extends AppCompatActivity {
 
     private RadioGroup radio;
+
+
+
     private FragmentManager manager;
 
     private FragmentTransaction transaction;
